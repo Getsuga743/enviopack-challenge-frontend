@@ -8,7 +8,7 @@ function Theme({ children }) {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      { children }
+      {children}
     </ThemeProvider>
   );
 }
