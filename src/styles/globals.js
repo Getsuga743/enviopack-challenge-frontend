@@ -26,6 +26,7 @@ const GlobalStyles = createGlobalStyle`
     }
     a {
         text-decoration: none;
+        color:${(props) => props.theme.colors.background}
     };
     li{
         list-style: none;

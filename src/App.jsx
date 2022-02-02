@@ -4,12 +4,18 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ProductsContext } from './context/ProductsContext';
+import { UserContext } from './context/UserContext';
 import Catalog from './pages/Catalog';
 import Layout from './pages/Layout';
 
 function App() {
-  const { loading } = React.useContext(ProductsContext);
-  console.log(loading);
+  const { loading: productsLoading } = React.useContext(ProductsContext);
+  const { loading: userLoading } = React.useContext(UserContext);
+
+  const isLoading = productsLoading && userLoading;
+
+  if (isLoading) return <div>Loading...</div>;
+
   return (
     <BrowserRouter>
       <Layout>
