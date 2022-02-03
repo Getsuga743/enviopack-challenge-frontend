@@ -13,9 +13,7 @@ export default function Header() {
           <Link to="/">
             <h1>Tienda de productos</h1>
           </Link>
-          <div>
-            <span>{user.firstName}</span> <span>{user.lastName}</span>
-          </div>
+          <span>{user.firstName}</span>
           <Link to="/cart">Carrito(0)</Link>
           <span>Créditos:{user.credit}</span>
         </Nav>

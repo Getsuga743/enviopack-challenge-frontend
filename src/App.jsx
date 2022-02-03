@@ -5,6 +5,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ProductsContext } from './context/ProductsContext';
 import { UserContext } from './context/UserContext';
+import Cart from './pages/Cart';
 import Catalog from './pages/Catalog';
 import Layout from './pages/Layout';
 
@@ -21,14 +22,7 @@ function App() {
       <Layout>
         <Routes>
           <Route index path="/" element={<Catalog />} />
-          <Route
-            path="cart"
-            element={
-              <main style={{ padding: '1rem' }}>
-                <p>Cart</p>
-              </main>
-            }
-          />
+          <Route path="cart" element={<Cart />} />
           <Route
             path="cart/succes"
             element={
