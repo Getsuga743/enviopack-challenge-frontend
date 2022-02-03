@@ -1,12 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
-     *, *::after, *::before {
+    *, *::after, *::before,  {
     box-sizing: border-box;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     };
-     *{
+    *{
         box-sizing: border-box;
         margin:0;
     };
@@ -31,6 +31,20 @@ const GlobalStyles = createGlobalStyle`
     li{
         list-style: none;
     };
-
+    ul{
+        margin:0;
+        padding:0;
+    };
+    button,
+    button:focus,
+    button:active{
+        border:1px solid black;
+        background:none;
+        outline:none;
+        padding:0;
+    };
+    button span{
+        position: relative;
+    };
 `;
 export default GlobalStyles;
