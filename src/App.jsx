@@ -3,7 +3,6 @@
 /* eslint-disable import/no-named-as-default-member */
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { ProductsContext } from './context/ProductsContext';
 import { UserContext } from './context/UserContext';
 import Cart from './pages/Cart';
 import Catalog from './pages/Catalog';
@@ -12,10 +11,7 @@ import Layout from './pages/Layout';
 import Succes from './pages/Succes';
 
 function App() {
-  const { loading: productsLoading } = React.useContext(ProductsContext);
-  const { loading: userLoading } = React.useContext(UserContext);
-
-  const isLoading = productsLoading && userLoading;
+  const { loading: isLoading } = React.useContext(UserContext);
 
   if (isLoading) return <div>Loading...</div>;
 

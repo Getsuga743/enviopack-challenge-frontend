@@ -1,22 +1,24 @@
 import PropTypes from 'prop-types';
-import React, { useState, useMemo, useEffect } from 'react';
-import api from '../api/index';
+import React, { useMemo, useReducer } from 'react';
+import { productsActions } from '../utils/actions';
 
 export const ProductsContext = React.createContext(null);
-
+function productsReducer(state, action) {
+  switch (action.type) {
+    case productsActions.add:
+      return { products: action.payload };
+    case productsActions.maxPrice:
+      return { products: state.products.sort((a, b) => b.price - a.price) };
+    case productsActions.minPrice:
+      return { products: state.products.sort((a, b) => a.price - b.price) };
+    default:
+      return { products: state.products };
+  }
+}
 function ProductsProvider({ children }) {
-  const [products, setProducts] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [state, dispatch] = useReducer(productsReducer, { products: [] });
 
-  useEffect(() => {
-    setLoading(true);
-    api.getProducts().then((apiProducts) => {
-      setProducts(apiProducts);
-      setLoading(false);
-    });
-  }, []);
-
-  const ProductsValue = useMemo(() => ({ products, loading }));
+  const ProductsValue = useMemo(() => ({ state, dispatch }));
 
   return <ProductsContext.Provider value={ProductsValue}>{children}</ProductsContext.Provider>;
 }

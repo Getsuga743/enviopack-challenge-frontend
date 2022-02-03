@@ -27,8 +27,8 @@ function Cart() {
         </Text>
       </Box>
       <CartButtons>
-        <Button>Volver al catálogo</Button>
-        <Button>Finalizar Compra</Button>
+        <Button m="0">Volver al catálogo</Button>
+        <Button m="0">Finalizar Compra</Button>
       </CartButtons>
     </PageContainer>
   );

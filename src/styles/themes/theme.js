@@ -14,10 +14,10 @@ const theme = {
     xl: '1280px',
   },
   breakpoints: {
-    sm: 'screen and (max-width: 480px)',
-    md: 'screen and (max-width: 768px)',
-    lg: 'screen and (max-width: 1024px)',
-    xl: 'screen and (max-width: 1280px)',
+    sm: 'max-width: 480px)',
+    md: 'max-width: 768px)',
+    lg: 'max-width: 1024px)',
+    xl: 'max-width: 1280px)',
   },
 };
 

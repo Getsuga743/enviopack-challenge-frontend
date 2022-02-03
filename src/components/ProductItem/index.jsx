@@ -13,9 +13,13 @@ function ProductItem({ title, price }) {
         <img src={productImage} alt={title} />
       </div>
       <div>
-        <Title fontSize="md">{title}</Title>
+        <Title style={{ minHeight: '54px', margin: '1rem' }} fontSize="md">
+          {title}
+        </Title>
         <p>$ {formatPrice}</p>
-        <Button size="full">Agregar al carrito</Button>
+        <Button size="full" m="0">
+          Agregar al carrito
+        </Button>
       </div>
     </ProductContainer>
   );

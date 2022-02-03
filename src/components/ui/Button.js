@@ -9,7 +9,8 @@ const ButtonSizes = {
 };
 
 const Button = styled.button`
-  background-color: ${(props) => props.theme.colors.primary};
+  background-color: ${(props) =>
+    props.disabled ? props.theme.colors.accent2 : props.theme.colors.primary};
   border-radius: 3px;
   margin: ${(props) => props.m || 'auto'};
   width: ${(props) => ButtonSizes[props.size]};
