@@ -35,14 +35,13 @@ const GlobalStyles = createGlobalStyle`
         margin:0;
         padding:0;
     };
-    button,
-    button:focus,
-    button:active{
+    button{
+        display:flex;
+        justify-content:center;
+        align-items:center;
         border:1px solid black;
-        background:none;
-        outline:none;
-        padding:0;
-    };
+        text-align:center;
+    }
     button span{
         position: relative;
     };

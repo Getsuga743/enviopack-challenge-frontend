@@ -5,6 +5,7 @@ const ButtonSizes = {
   lg: '20rem',
   md: '15rem',
   sm: '10rem',
+  tny: '2rem',
 };
 
 const Button = styled.button`
@@ -15,8 +16,12 @@ const Button = styled.button`
   color: ${(props) => props.theme.colors.background};
   cursor: pointer;
   transition: all 100ms;
+  padding: 1.5rem;
   :hover {
-    filter: brightness(1.5);
+    filter: brightness(1.4);
+  }
+  :active {
+    filter: brightness(1);
   }
 `;
 export default Button;
