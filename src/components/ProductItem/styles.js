@@ -4,7 +4,7 @@ const ProductContainer = styled.li`
   display: flex;
   flex-direction: column;
   text-align: center;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   border-radius: 6px;
   align-items: center;
   padding: 2rem;
@@ -14,6 +14,7 @@ const ProductContainer = styled.li`
     img {
       width: 100%;
       heigth: auto;
+      object-fit: contain;
     }
   }
   > div:not(div:nth-child(1)) {
