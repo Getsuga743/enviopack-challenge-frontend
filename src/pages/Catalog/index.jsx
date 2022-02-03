@@ -5,6 +5,7 @@ import ProductsGrid from '../../components/ProductsList/styles';
 import Button from '../../components/ui/Button';
 import Container from '../../components/ui/containers/Container';
 import PageContainer from '../../components/ui/containers/PageContainer';
+import Text from '../../components/ui/Text';
 import Title from '../../components/ui/Title';
 import { ProductsContext } from '../../context/ProductsContext';
 import { PaginationContainer } from './styles';
@@ -26,7 +27,7 @@ function Catalog() {
         </ProductsGrid>
         <PaginationContainer size="sm">
           <Button size="sm">Anterior</Button>
-          <span>1/3</span>
+          <Text>1/3</Text>
           <Button size="sm">Siguiente</Button>
         </PaginationContainer>
       </Container>
