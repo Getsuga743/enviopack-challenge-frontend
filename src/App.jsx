@@ -7,7 +7,9 @@ import { ProductsContext } from './context/ProductsContext';
 import { UserContext } from './context/UserContext';
 import Cart from './pages/Cart';
 import Catalog from './pages/Catalog';
+import Error from './pages/Error/Index';
 import Layout from './pages/Layout';
+import Succes from './pages/Succes';
 
 function App() {
   const { loading: productsLoading } = React.useContext(ProductsContext);
@@ -23,22 +25,8 @@ function App() {
         <Routes>
           <Route index path="/" element={<Catalog />} />
           <Route path="cart" element={<Cart />} />
-          <Route
-            path="cart/succes"
-            element={
-              <main style={{ padding: '1rem' }}>
-                <p>succes!</p>
-              </main>
-            }
-          />
-          <Route
-            path="cart/error"
-            element={
-              <main style={{ padding: '1rem' }}>
-                <p>error!</p>
-              </main>
-            }
-          />
+          <Route path="cart/success" element={<Succes />} />
+          <Route path="cart/error" element={<Error />} />
           <Route
             path="*"
             element={

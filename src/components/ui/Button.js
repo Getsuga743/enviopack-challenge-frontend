@@ -11,6 +11,7 @@ const ButtonSizes = {
 const Button = styled.button`
   background-color: ${(props) => props.theme.colors.primary};
   border-radius: 3px;
+  margin: ${(props) => props.m || 'auto'};
   width: ${(props) => ButtonSizes[props.size]};
   height: 3.5rem;
   color: ${(props) => props.theme.colors.background};
