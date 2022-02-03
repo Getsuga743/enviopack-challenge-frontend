@@ -4,7 +4,7 @@ import Box from '../ui/Box';
 
 function CartItems({ children }) {
   return (
-    <Box height="10rem" width="lg" m="auto auto 2rem auto" p="0 2rem">
+    <Box height="auto" width="lg" m="auto auto 2rem auto" p="2rem" direction="column">
       {children}
     </Box>
   );

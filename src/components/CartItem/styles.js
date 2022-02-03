@@ -10,6 +10,7 @@ const CartItemContainer = styled.li`
   padding: 2rem 2rem 2rem 0;
   background-color: ${(props) => props.theme.colors.accent1};
   border-radius: 6px;
+  margin: 0 0 1rem 0;
   > div:nth-child(1) {
     display: flex;
     align-items: center;
