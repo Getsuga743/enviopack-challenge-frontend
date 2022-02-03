@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import CatalogControllers from '../../components/CatalogControllers';
-import ProductItem from '../../components/ProductItem/ProductItem';
+import ProductItem from '../../components/ProductItem';
 import ProductsGrid from '../../components/ProductsList/styles';
 import Button from '../../components/ui/Button';
 import Container from '../../components/ui/containers/Container';
