@@ -12,7 +12,16 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react'],
+
   rules: {
     'react/require-default-props': 'off',
+    'jsx-a11y/label-has-associated-control': [
+      2,
+      {
+        labelAttributes: ['label'],
+        controlComponents: ['Input'],
+        depth: 3,
+      },
+    ],
   },
 };
