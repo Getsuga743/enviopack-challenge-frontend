@@ -18,9 +18,8 @@ function useUser() {
 
   const handleBuyFromUser = (total) => {
     if (total <= user.credit) {
-      return setUser((prevState) => ({ ...user, credit: prevState.credit - total }));
+      setUser((prevState) => ({ ...user, credit: prevState.credit - total }));
     }
-    throw new Error('el crédito es insuficiente');
   };
   return { user, loading, handleBuyFromUser };
 }
