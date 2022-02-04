@@ -4,6 +4,7 @@ export const HeaderContainer = styled.header`
   display: flex;
   flex-direction: row;
   width: 100%;
+  min-heigth: 5rem;
   padding: 1rem;
   background-color: ${(props) => props.theme.colors.primary};
 `;
@@ -36,5 +37,7 @@ export const Nav = styled.nav`
   }
   > *:nth-last-child(1) {
     margin: auto 0 auto 1rem;
+    width: auto;
+    min-width: 12rem;
   }
 `;
