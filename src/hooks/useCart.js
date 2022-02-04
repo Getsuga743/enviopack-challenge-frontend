@@ -1,10 +1,15 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import api from '../api';
 import { CartContext } from '../context/CartContext';
 import { cartActions } from '../utils/actions';
 
 export default function useCart() {
   const { cartState, dispatchCart } = useContext(CartContext);
+
+  useEffect(() => {
+    const cartStateToLocalStorage = JSON.stringify(cartState);
+    localStorage.setItem('cartState', cartStateToLocalStorage);
+  }, [cartState]);
 
   const handleAddCart = (id) => {
     api.getProduct(id).then((product) => {
