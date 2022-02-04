@@ -10,10 +10,10 @@ const ProductContainer = styled.li`
   padding: 2rem;
   > div:nth-child(1) {
     width: 20rem;
-    heigth: 30rem;
+    height: auto;
     img {
       width: 100%;
-      heigth: auto;
+      height: auto;
       object-fit: contain;
     }
   }
