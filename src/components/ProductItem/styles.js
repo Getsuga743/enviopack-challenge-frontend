@@ -17,20 +17,9 @@ const ProductContainer = styled.li`
       object-fit: contain;
     }
   }
-  > div:not(div:nth-child(1)) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-    h3 {
-      margin: 0;
-    }
-    p {
-      margin: 1rem 0;
-      font-weight: bold;
-      justify-self: flex-end;
-    }
+  p {
+    margin: 1rem 0;
+    justify-self: flex-end;
   }
 `;
 

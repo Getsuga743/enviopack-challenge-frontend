@@ -5,7 +5,11 @@ import ProductImage from '../../images/image-product.webp';
 import Title from '../ui/Title';
 import Button from '../ui/Button';
 
-export default function CartItem({ title, price }) {
+export default function CartItem({ title, price, id, handleRemove }) {
+  const handleOnClick = (e) => {
+    e.preventDefault();
+    handleRemove(id, price);
+  };
   return (
     <CartItemContainer>
       <div>
@@ -15,7 +19,9 @@ export default function CartItem({ title, price }) {
         {title}
       </Title>
       <span>${price}</span>
-      <Button size="tny">X</Button>
+      <Button type="button" m="0" size="tny" onClick={handleOnClick}>
+        X
+      </Button>
     </CartItemContainer>
   );
 }
@@ -23,4 +29,6 @@ export default function CartItem({ title, price }) {
 CartItem.propTypes = {
   price: PropTypes.number,
   title: PropTypes.string,
+  handleRemove: PropTypes.func,
+  id: PropTypes.number,
 };
