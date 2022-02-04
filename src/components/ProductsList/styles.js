@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 const ProductsGrid = styled.ul`
   display: grid;
-  place-content: center;
+  justify-center: center;
+  align-content: flex-start;
   margin: 2rem 0;
   width: 100%;
   grid-template-columns: repeat(3, 1fr);
