@@ -24,8 +24,9 @@ function Cart() {
       handleBuyFromUser(total);
       handleRemoveAll();
       navigate('/cart/success');
+    } else {
+      navigate('/cart/error');
     }
-    navigate('/cart/error');
   };
   const formatedTotal = new Intl.NumberFormat('es-AR').format(total);
   return (
