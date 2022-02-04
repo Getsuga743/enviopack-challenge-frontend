@@ -5,7 +5,7 @@ export const UserContext = React.createContext(null);
 function UserProvider({ children }) {
   const [user, setUser] = useState(null);
 
-  const UserValue = useMemo(() => ({ user, setUser }), [user]);
+  const UserValue = useMemo(() => ({ user, setUser }), [user, setUser]);
   return <UserContext.Provider value={UserValue}>{children}</UserContext.Provider>;
 }
 
