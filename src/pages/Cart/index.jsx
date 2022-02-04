@@ -18,11 +18,14 @@ function Cart() {
     handleRemoveCartById,
     handleRemoveAll,
   } = useCart();
-  const { handleBuyFromUser } = useUser();
+  const { handleBuyFromUser, user } = useUser();
   const handleBuy = () => {
-    handleBuyFromUser(total);
-    handleRemoveAll();
-    navigate('/cart/success');
+    if (total <= user.credit) {
+      handleBuyFromUser(total);
+      handleRemoveAll();
+      navigate('/cart/success');
+    }
+    navigate('/cart/error');
   };
   const formatedTotal = new Intl.NumberFormat('es-AR').format(total);
   return (
