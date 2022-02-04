@@ -12,6 +12,7 @@ export default function useProducts() {
       dispatch({ type: productsActions.add, payload: apiProducts });
       setLoading(false);
     });
+    return () => setLoading(null);
   }, []);
 
   return { loading, state, dispatch };
