@@ -15,13 +15,14 @@ const CartItemContainer = styled.li`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 7rem;
-    heigth: auto;
+    min-width: 7rem;
+    max-width: 7rem;
+    height: auto;
     border-radius: 0 6px 6px 0;
     overflow: hidden;
     img {
       width: 100%;
-      heigth: auto;
+      height: auto;
       object-fit: contain;
     }
   }
