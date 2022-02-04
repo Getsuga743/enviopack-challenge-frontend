@@ -8,7 +8,7 @@ const fontSize = {
 };
 
 const Text = styled.p`
-  font-weight: ${(props) => props.fontWeight || '300'};
+  font-weight: ${(props) => props?.fontWeight || 300};
   font-size: ${(props) => fontSize[props.fontSize] || '2.5rem'};
   text-align: ${(props) => props.textAlign || 'center'};
 `;
