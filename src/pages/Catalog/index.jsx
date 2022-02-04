@@ -19,8 +19,8 @@ function Catalog() {
     cartState: { products: cartProducts },
   } = useCart();
 
-  const { paginateProducts, dispatchPage, limitOfPage, page } = usePagination(state.products);
-  const { filterProducts, filterSearchValue, setFilterSearchValue } = useFilter(paginateProducts);
+  const { filteredProducts, filterSearchValue, setFilterSearchValue } = useFilter(state.products);
+  const { paginatedProducts, dispatchPage, limitOfPage, page } = usePagination(filteredProducts);
   const { handleAddCart } = useCart();
 
   const handleFilter = (e) => {
@@ -55,7 +55,7 @@ function Catalog() {
           filterSearchValue={filterSearchValue}
         />
         <ProductsGrid>
-          {filterProducts().map((product) => (
+          {paginatedProducts.map((product) => (
             <ProductItem
               handleAddCart={handleAddCart}
               key={product.sku}

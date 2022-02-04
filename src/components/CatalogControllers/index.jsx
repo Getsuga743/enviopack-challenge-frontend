@@ -11,12 +11,12 @@ export default function CatalogControllers({
 }) {
   const handleInputOnchange = (e) => {
     e.preventDefault();
-    setFilterSearchValue(e.target.value);
+    setFilterSearchValue(e.target.value.toLowerCase());
   };
   return (
     <ControllersContainer>
       <Input
-        type="text"
+        type="search"
         name="search-products"
         placeholder="Buscar productos por nombre"
         onChange={handleInputOnchange}

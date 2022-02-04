@@ -1,16 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function useFilter(paginateProducts) {
   const [filterSearchValue, setFilterSearchValue] = useState('');
+  const [filteredProducts, setFilteredProducts] = useState(() => paginateProducts);
+  useEffect(() => {
+    const filterProducts = () => {
+      if (paginateProducts && filterSearchValue !== '') {
+        return paginateProducts.filter((el) => el.title.toLowerCase().includes(filterSearchValue));
+      }
+      return paginateProducts;
+    };
+    setFilteredProducts(filterProducts());
+  }, [filterSearchValue, paginateProducts, setFilterSearchValue, setFilteredProducts]);
 
-  const filterProducts = () => {
-    if (paginateProducts && filterSearchValue !== '') {
-      return paginateProducts.filter((el) => el.title.includes(filterSearchValue));
-    }
-    return paginateProducts;
-  };
   return {
-    filterProducts,
+    filteredProducts,
     filterSearchValue,
     setFilterSearchValue,
   };
