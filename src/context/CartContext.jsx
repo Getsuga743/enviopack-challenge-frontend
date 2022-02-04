@@ -40,7 +40,6 @@ function init(initState) {
 
 function CartProvider({ children }) {
   const [cartState, dispatchCart] = useReducer(cartReducer, initialState, init);
-  console.log(cartState);
   const CartValue = useMemo(() => ({ cartState, dispatchCart }), [cartState]);
   return <CartContext.Provider value={CartValue}>{children}</CartContext.Provider>;
 }
