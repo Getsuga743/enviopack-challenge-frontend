@@ -5,13 +5,16 @@ import App from './App';
 import theme from './styles/themes/theme';
 import ProductsProvider from './context/ProductsContext';
 import UserProvider from './context/UserContext';
+import CartProvider from './context/CartContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <Theme theme={theme}>
       <UserProvider>
         <ProductsProvider>
-          <App />
+          <CartProvider>
+            <App />
+          </CartProvider>
         </ProductsProvider>
       </UserProvider>
     </Theme>
