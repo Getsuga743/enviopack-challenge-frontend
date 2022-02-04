@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PageContainer from '../../components/ui/containers/PageContainer';
 import Title from '../../components/ui/Title';
 import Box from '../../components/ui/Box';
@@ -14,7 +15,7 @@ function Error() {
           Ocurrío un error con la compra, revisá que el importe no supere el crédito disponible en
           tu cuenta.
         </Text>
-        <Button m="2rem auto auto auto" size="full">
+        <Button as={Link} to="/cart" m="2rem auto auto auto" size="full">
           Volver al carrito
         </Button>
       </Box>
