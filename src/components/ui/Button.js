@@ -9,6 +9,10 @@ const ButtonSizes = {
 };
 
 const Button = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   background-color: ${(props) =>
     props.disabled ? props.theme.colors.accent2 : props.theme.colors.primary};
   border-radius: 3px;
