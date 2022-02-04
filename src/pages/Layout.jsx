@@ -1,19 +1,17 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import { Outlet } from 'react-router';
 
 import Header from '../components/Header';
 
-function Layout({ children }) {
+function Layout() {
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <main>
+        <Outlet />
+      </main>
     </>
   );
 }
-
-Layout.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.node]),
-};
 
 export default Layout;

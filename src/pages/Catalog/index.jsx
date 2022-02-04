@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import CatalogControllers from '../../components/CatalogControllers';
 import Pagination from '../../components/Pagination';
 import ProductItem from '../../components/ProductItem';
@@ -7,20 +7,31 @@ import Container from '../../components/ui/containers/Container';
 import PageContainer from '../../components/ui/containers/PageContainer';
 import Spinner from '../../components/ui/Spinner';
 import Title from '../../components/ui/Title';
+import useCart from '../../hooks/useCart';
+import useFilter from '../../hooks/useFilter';
 import usePagination from '../../hooks/usePagination';
 import useProducts from '../../hooks/useProducts';
 import { productsActions } from '../../utils/actions';
 
 function Catalog() {
   const { loading, state, dispatch } = useProducts();
-  const { paginateProducts, dispatchPage, limitOfPage, page } = usePagination(state.products);
-  const [filterSearchValue, setFilterSearchValue] = useState('');
+  const {
+    cartState: { products: cartProducts },
+  } = useCart();
 
-  const filterProducts = () => {
-    if (paginateProducts && filterSearchValue !== '') {
-      return paginateProducts.filter((el) => el.title.includes(filterSearchValue));
+  const { paginateProducts, dispatchPage, limitOfPage, page } = usePagination(state.products);
+  const { filterProducts, filterSearchValue, setFilterSearchValue } = useFilter(paginateProducts);
+  const { handleAddCart } = useCart();
+
+  const handleFilter = (e) => {
+    e.preventDefault();
+    if (e.target.value === '1') {
+      dispatch({ type: productsActions.minPrice });
+    } else if (e.target.value === '2') {
+      dispatch({ type: productsActions.maxPrice });
+    } else {
+      dispatch();
     }
-    return paginateProducts;
   };
 
   if (loading)
@@ -34,17 +45,6 @@ function Catalog() {
       </PageContainer>
     );
 
-  const handleFilter = (e) => {
-    e.preventDefault();
-    if (e.target.value === '1') {
-      dispatch({ type: productsActions.minPrice });
-    } else if (e.target.value === '2') {
-      dispatch({ type: productsActions.maxPrice });
-    } else {
-      dispatch();
-    }
-  };
-
   return (
     <PageContainer>
       <Title fontSize="xl">Catálogo</Title>
@@ -56,7 +56,14 @@ function Catalog() {
         />
         <ProductsGrid>
           {filterProducts().map((product) => (
-            <ProductItem key={product.id} title={product.title} price={product.price} />
+            <ProductItem
+              handleAddCart={handleAddCart}
+              key={product.sku}
+              id={product.id}
+              title={product.title}
+              price={product.price}
+              isInCart={cartProducts.some((el) => el.id === product.id)}
+            />
           ))}
         </ProductsGrid>
         <Pagination page={page} limitOfPage={limitOfPage} dispatchPage={dispatchPage} />
