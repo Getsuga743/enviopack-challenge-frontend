@@ -7,8 +7,7 @@ import Title from '../ui/Title';
 import Button from '../ui/Button';
 import Text from '../ui/Text';
 
-function ProductItem(props) {
-  const { title, price, handleAddCart, id, isInCart } = props;
+function ProductItem({ title, price, handleAddCart, id, isInCart }) {
   const handleOnClick = (e) => {
     e.preventDefault();
     handleAddCart(id);
