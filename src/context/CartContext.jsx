@@ -27,12 +27,20 @@ function cartReducer(state, action) {
       return { ...state };
   }
 }
+
+const cacheCartProducts = JSON.parse(window.localStorage.getItem('cartState'));
+const initialState = {
+  products: cacheCartProducts?.products || [],
+  total: cacheCartProducts?.total || 0,
+  quantity: cacheCartProducts?.products.length || 0,
+};
+function init(initState) {
+  return { ...initState };
+}
+
 function CartProvider({ children }) {
-  const [cartState, dispatchCart] = useReducer(cartReducer, {
-    products: [],
-    total: 0,
-    quantity: 0,
-  });
+  const [cartState, dispatchCart] = useReducer(cartReducer, initialState, init);
+  console.log(cartState);
   const CartValue = useMemo(() => ({ cartState, dispatchCart }), [cartState]);
   return <CartContext.Provider value={CartValue}>{children}</CartContext.Provider>;
 }
