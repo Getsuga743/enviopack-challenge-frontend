@@ -32,4 +32,4 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 ## About commits:
 
-This project is Commitizen friendly, for commits you should check: [commitizez docs](https://github.com/commitizen/cz-cli)
+This project is Commitizen friendly, for commits you should check: [commitizen docs](https://github.com/commitizen/cz-cli)
