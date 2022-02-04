@@ -1,20 +1,11 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import api from '../api';
 
 export const UserContext = React.createContext(null);
 function UserProvider({ children }) {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    setLoading(true);
-    api.getUser().then((userData) => {
-      setUser(userData);
-      setLoading(false);
-    });
-  }, []);
-  const UserValue = useMemo(() => ({ user, loading }));
+  const UserValue = useMemo(() => ({ user, setUser }), [user]);
   return <UserContext.Provider value={UserValue}>{children}</UserContext.Provider>;
 }
 
