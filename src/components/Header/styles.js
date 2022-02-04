@@ -4,7 +4,7 @@ export const HeaderContainer = styled.header`
   display: flex;
   flex-direction: row;
   width: 100%;
-  min-heigth: 5rem;
+  min-height: 5rem;
   padding: 1rem;
   background-color: ${(props) => props.theme.colors.primary};
 `;
