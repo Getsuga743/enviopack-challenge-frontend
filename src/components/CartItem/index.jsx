@@ -1,15 +1,19 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import CartItemContainer from './styles';
 import ProductImage from '../../images/image-product.webp';
 import Title from '../ui/Title';
 import Button from '../ui/Button';
 
 export default function CartItem({ title, price, id, handleRemove }) {
+  const [isDisabled, setDisabled] = useState(false);
+
   const handleOnClick = (e) => {
     e.preventDefault();
+    setDisabled(true);
     handleRemove(id, price);
   };
+
   return (
     <CartItemContainer>
       <div>
@@ -19,7 +23,7 @@ export default function CartItem({ title, price, id, handleRemove }) {
         {title}
       </Title>
       <span>${price}</span>
-      <Button type="button" m="0" size="tny" onClick={handleOnClick}>
+      <Button disabled={isDisabled} type="button" m="0" size="tny" onClick={handleOnClick}>
         X
       </Button>
     </CartItemContainer>

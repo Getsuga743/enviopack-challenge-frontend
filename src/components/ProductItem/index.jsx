@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import productImage from '../../images/image-product.webp';
 import ProductContainer from './styles';
@@ -8,8 +8,11 @@ import Button from '../ui/Button';
 import Text from '../ui/Text';
 
 function ProductItem({ title, price, handleAddCart, id, isInCart }) {
+  const [isDisabled, setDisabled] = useState(false);
+
   const handleOnClick = (e) => {
     e.preventDefault();
+    setDisabled(true);
     handleAddCart(id);
   };
   const formatedPrice = new Intl.NumberFormat('es-AR').format(price);
@@ -33,7 +36,7 @@ function ProductItem({ title, price, handleAddCart, id, isInCart }) {
             </Text>
           </Button>
         ) : (
-          <Button size="full" m="0" onClick={handleOnClick}>
+          <Button disabled={isDisabled} size="full" m="0" onClick={handleOnClick}>
             <Text fontSize="md" fontWeight="400">
               Agregar al carrito
             </Text>
