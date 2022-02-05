@@ -2,7 +2,8 @@
 import products from './products.json';
 import user from './profile.json';
 
-const deffer = (fn) => new Promise((resolve) => setTimeout(() => resolve(fn), 1000));
+const WAIT_TIME = 1000;
+const deffer = (fn) => new Promise((resolve) => setTimeout(() => resolve(fn), WAIT_TIME));
 
 export default {
   getProducts: () => deffer(products.productos),
