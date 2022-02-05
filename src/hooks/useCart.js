@@ -13,11 +13,13 @@ export default function useCart() {
 
   const handleAddCart = (id) => {
     api.getProduct(id).then((product) => {
-      const action = {
-        type: cartActions.add,
-        payload: product,
-      };
-      dispatchCart(action);
+      if (!cartState.products.map((cartProduct) => cartProduct.id).includes(id)) {
+        const action = {
+          type: cartActions.add,
+          payload: product,
+        };
+        dispatchCart(action);
+      }
     });
   };
   const handleRemoveCartById = (id, price) => {

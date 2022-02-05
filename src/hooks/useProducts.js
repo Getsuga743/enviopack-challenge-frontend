@@ -15,5 +15,15 @@ export default function useProducts() {
     return () => setLoading(null);
   }, []);
 
-  return { loading, state, dispatch };
+  const applyFilterToProducts = (idFilter) => {
+    if (idFilter === '1') {
+      dispatch({ type: productsActions.minPrice });
+    } else if (idFilter === '2') {
+      dispatch({ type: productsActions.maxPrice });
+    } else {
+      dispatch();
+    }
+  };
+
+  return { loading, state, applyFilterToProducts };
 }
