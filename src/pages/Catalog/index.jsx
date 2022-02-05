@@ -11,10 +11,9 @@ import useCart from '../../hooks/useCart';
 import useFilter from '../../hooks/useFilter';
 import usePagination from '../../hooks/usePagination';
 import useProducts from '../../hooks/useProducts';
-import { productsActions } from '../../utils/actions';
 
 function Catalog() {
-  const { loading, state, dispatch } = useProducts();
+  const { loading, state, applyFilterToProducts } = useProducts();
   const {
     cartState: { products: cartProducts },
   } = useCart();
@@ -25,13 +24,7 @@ function Catalog() {
 
   const handleFilter = (e) => {
     e.preventDefault();
-    if (e.target.value === '1') {
-      dispatch({ type: productsActions.minPrice });
-    } else if (e.target.value === '2') {
-      dispatch({ type: productsActions.maxPrice });
-    } else {
-      dispatch();
-    }
+    applyFilterToProducts(e.target.value);
   };
 
   if (loading)
