@@ -23,7 +23,7 @@ function ProductItem({ title, price, handleAddCart, id, isInCart }) {
         <img src={productImage} alt={title} />
       </div>
       <div>
-        <Title style={{ minHeight: '54px', margin: '1rem' }} fontSize="md">
+        <Title style={{ minHeight: '8rem', margin: '1rem' }} fontSize="md">
           {title}
         </Title>
         <Text fontWeight="bold" fontSize="md">

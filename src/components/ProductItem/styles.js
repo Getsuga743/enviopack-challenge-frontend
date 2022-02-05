@@ -21,6 +21,10 @@ const ProductContainer = styled.li`
     margin: 1rem 0;
     justify-self: flex-end;
   }
+  @media (max-width: ${(props) => props.theme.sizes.sm}) {
+    max-width: 32.1rem;
+    margin: auto;
+  }
 `;
 
 export default ProductContainer;
