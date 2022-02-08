@@ -8,6 +8,13 @@ const ButtonSizes = {
   tny: '2rem',
 };
 
+const fontSize = {
+  sm: '1rem',
+  md: '1.5rem',
+  lg: '2rem',
+  xl: '2.5rem',
+};
+
 const Button = styled.button`
   display: flex;
   justify-content: center;
@@ -19,6 +26,7 @@ const Button = styled.button`
   margin: ${(props) => props.m || 'auto'};
   width: ${(props) => ButtonSizes[props.size]};
   height: 3.5rem;
+  font-size: ${(props) => fontSize[props.fontSize] || fontSize.md};
   color: ${(props) => props.theme.colors.background};
   cursor: pointer;
   transition: all 100ms;
@@ -28,6 +36,11 @@ const Button = styled.button`
   }
   :active {
     filter: brightness(1);
+  }
+  & {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 export default Button;

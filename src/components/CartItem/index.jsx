@@ -13,19 +13,21 @@ export default function CartItem({ title, price, id, handleRemove }) {
     setDisabled(true);
     handleRemove(id, price);
   };
-
+  const formatedPrice = new Intl.NumberFormat('es-AR').format(price);
   return (
     <CartItemContainer>
       <div>
         <img src={ProductImage} alt={title} />
       </div>
-      <Title fontSize="sm" as="span">
-        {title}
-      </Title>
-      <span>${price}</span>
-      <Button disabled={isDisabled} type="button" m="0" size="tny" onClick={handleOnClick}>
-        X
-      </Button>
+      <div>
+        <Title fontSize="sm" as="span">
+          {title}
+        </Title>
+        <span>${formatedPrice}</span>
+        <Button disabled={isDisabled} type="button" m="auto 0" size="tny" onClick={handleOnClick}>
+          X
+        </Button>
+      </div>
     </CartItemContainer>
   );
 }

@@ -7,7 +7,7 @@ const PaginationContainer = styled(Container)`
   align-items: center;
   height: 5rem;
   margin: auto;
-  > span {
+  & span {
     margin: auto;
   }
 `;

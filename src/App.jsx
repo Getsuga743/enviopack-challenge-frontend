@@ -7,11 +7,13 @@ import Container from './components/ui/containers/Container';
 import PageContainer from './components/ui/containers/PageContainer';
 import Spinner from './components/ui/Spinner';
 import useUser from './hooks/useUser';
-import Cart from './pages/Cart';
-import Catalog from './pages/Catalog';
-import Error from './pages/Error/Index';
+
 import Layout from './pages/Layout';
-import Success from './pages/Success';
+
+const CatalogPage = React.lazy(() => import('./pages/Catalog'));
+const CartPage = React.lazy(() => import('./pages/Cart'));
+const ErrorPage = React.lazy(() => import('./pages/Error/Index'));
+const SuccessPage = React.lazy(() => import('./pages/Success'));
 
 function App() {
   const { loading } = useUser();
@@ -31,10 +33,38 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Catalog />} />
-          <Route path="cart" element={<Cart />} />
-          <Route path="cart/success" element={<Success />} />
-          <Route path="cart/error" element={<Error />} />
+          <Route
+            index
+            element={
+              <React.Suspense fallback={<Spinner />}>
+                <CatalogPage />
+              </React.Suspense>
+            }
+          />
+          <Route
+            path="cart"
+            element={
+              <React.Suspense fallback={<Spinner />}>
+                <CartPage />
+              </React.Suspense>
+            }
+          />
+          <Route
+            path="cart/success"
+            element={
+              <React.Suspense fallback={<Spinner />}>
+                <SuccessPage />
+              </React.Suspense>
+            }
+          />
+          <Route
+            path="cart/error"
+            element={
+              <React.Suspense fallback={<Spinner />}>
+                <ErrorPage />
+              </React.Suspense>
+            }
+          />
           <Route
             path="*"
             element={

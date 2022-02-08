@@ -8,7 +8,7 @@ const ProductContainer = styled.li`
   border-radius: 6px;
   align-items: center;
   padding: 2rem;
-  > div:nth-child(1) {
+  & div:nth-child(1) {
     width: 20rem;
     height: auto;
     img {
