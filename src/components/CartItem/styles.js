@@ -11,7 +11,7 @@ const CartItemContainer = styled.li`
   background-color: ${(props) => props.theme.colors.accent1};
   border-radius: 6px;
   margin: 0 0 1rem 0;
-  > div:nth-child(1) {
+  & div:nth-child(1) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,19 +26,46 @@ const CartItemContainer = styled.li`
       object-fit: contain;
     }
   }
-  span {
+  & div:nth-child(2) {
+    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    justify-self: flex-start;
-    margin: auto auto auto 1rem;
-    text-align: start;
-    width: fit-content;
+    & :nth-child(1) {
+      margin: 0 0 0 1rem;
+      width: 100%;
+      text-align: start;
+    }
+    & :nth-last-child(2) {
+      display: flex;
+      align-items: center;
+      margin: 0 1rem;
+    }
+    > button {
+      justify-self: flex-end;
+    }
   }
-  > span:nth-child(3) {
-    justify-self: flex-end;
-    margin: auto 2rem auto auto;
+  @media (max-width: ${(props) => props.theme.sizes.sm}) {
+    height: auto;
+    padding: 2rem;
+    & {
+      flex-wrap: wrap;
+    }
+    & div:nth-child(1) {
+      height: auto;
+      width: 100%;
+      margin: auto;
+      max-width: 25rem;
+    }
+    & div:nth-child(2) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      & :nth-child(1) {
+        text-align: center;
+      }
+      & :not(:nth-last-child(1)) {
+        margin: 1rem 0;
+      }
+    }
   }
 `;
 

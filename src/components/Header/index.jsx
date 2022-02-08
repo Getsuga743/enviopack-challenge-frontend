@@ -14,18 +14,28 @@ export default function Header() {
     <HeaderContainer>
       {user && (
         <Nav>
-          <Link to="/">
-            <h1>Tienda de productos</h1>
-          </Link>
-          <Text as="span" textAlign="center" fontSize="md" fontWeight="400">
-            {user.firstName}
-          </Text>
-          <Text as={Link} to="/cart" fontSize="md" fontWeight="bold">
-            Carrito({quantity})
-          </Text>
-          <Text as="span" fontSize="md" fontWeight="400">
-            Créditos: ${user.credit}
-          </Text>
+          <ul>
+            <li>
+              <Link to="/">
+                <h1>Tienda de productos</h1>
+              </Link>
+            </li>
+            <li>
+              <Text textAlign="center" fontSize="md" fontWeight="400">
+                {user.firstName}
+              </Text>
+            </li>
+            <li>
+              <Text as={Link} to="/cart" fontSize="md" fontWeight="bold">
+                Carrito({quantity})
+              </Text>
+            </li>
+            <li>
+              <Text fontSize="md" fontWeight="400">
+                Créditos: ${user.credit}
+              </Text>
+            </li>
+          </ul>
         </Nav>
       )}
     </HeaderContainer>

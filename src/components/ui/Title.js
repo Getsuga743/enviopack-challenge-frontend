@@ -11,6 +11,7 @@ const Title = styled.h3`
   font-weight: 600;
   font-size: ${(props) => fonts[props.fontSize] || '2.5rem'};
   margin: 2rem auto;
+  text-align: center;
 `;
 
 export default Title;
