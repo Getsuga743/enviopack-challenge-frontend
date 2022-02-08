@@ -2,7 +2,7 @@
 
 ### URL de Produción: https://enviopack-challenge-frontend-ivan.vercel.app/
 
-## Envíopack - Challenge Frontend React
+## Enviopack-Challenge-Frontend React
 
 ## Objetivo:
 
