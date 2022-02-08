@@ -1,13 +1,7 @@
-/* eslint-disable react/jsx-no-undef */
-/* eslint-disable react/no-children-prop */
-/* eslint-disable import/no-named-as-default-member */
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Container from './components/ui/containers/Container';
-import PageContainer from './components/ui/containers/PageContainer';
-import Spinner from './components/ui/Spinner';
+import PageSpinner from './pages/PageSpinner';
 import useUser from './hooks/useUser';
-
 import Layout from './pages/Layout';
 
 const CatalogPage = React.lazy(() => import('./pages/Catalog'));
@@ -18,16 +12,7 @@ const SuccessPage = React.lazy(() => import('./pages/Success'));
 function App() {
   const { loading } = useUser();
 
-  if (loading)
-    return (
-      <PageContainer>
-        <Container
-          style={{ margin: 'auto', justifyContent: 'center', height: '90vh', alignItems: 'center' }}
-        >
-          <Spinner />
-        </Container>
-      </PageContainer>
-    );
+  if (loading) return <PageSpinner />;
 
   return (
     <BrowserRouter>
@@ -36,7 +21,7 @@ function App() {
           <Route
             index
             element={
-              <React.Suspense fallback={<Spinner />}>
+              <React.Suspense fallback={<PageSpinner />}>
                 <CatalogPage />
               </React.Suspense>
             }
@@ -44,7 +29,7 @@ function App() {
           <Route
             path="cart"
             element={
-              <React.Suspense fallback={<Spinner />}>
+              <React.Suspense fallback={<PageSpinner />}>
                 <CartPage />
               </React.Suspense>
             }
@@ -52,7 +37,7 @@ function App() {
           <Route
             path="cart/success"
             element={
-              <React.Suspense fallback={<Spinner />}>
+              <React.Suspense fallback={<PageSpinner />}>
                 <SuccessPage />
               </React.Suspense>
             }
@@ -60,7 +45,7 @@ function App() {
           <Route
             path="cart/error"
             element={
-              <React.Suspense fallback={<Spinner />}>
+              <React.Suspense fallback={<PageSpinner />}>
                 <ErrorPage />
               </React.Suspense>
             }
