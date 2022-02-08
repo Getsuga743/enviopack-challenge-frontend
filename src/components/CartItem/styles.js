@@ -54,6 +54,7 @@ const CartItemContainer = styled.li`
       width: 100%;
       margin: auto;
       max-width: 25rem;
+      border-radius: 6px;
     }
     & div:nth-child(2) {
       flex-direction: column;
