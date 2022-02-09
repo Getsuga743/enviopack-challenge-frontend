@@ -7,6 +7,7 @@ export const productsActions = {
 export const paginationActions = {
   add: 'PAGE_ADD',
   sub: 'PAGE_SUB',
+  set: 'PAGE_SET',
 };
 
 export const cartActions = {
