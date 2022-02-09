@@ -7,6 +7,8 @@ function paginationReducer(state, action) {
       return state + 1;
     case paginationActions.sub:
       return state - 1;
+    case paginationActions.set:
+      return action.payload;
     default:
       return state;
   }

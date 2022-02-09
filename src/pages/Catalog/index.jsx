@@ -5,12 +5,12 @@ import ProductItem from '../../components/ProductItem';
 import ProductsGrid from '../../components/ProductsList/styles';
 import Container from '../../components/ui/containers/Container';
 import PageContainer from '../../components/ui/containers/PageContainer';
-import Spinner from '../../components/ui/Spinner';
 import Title from '../../components/ui/Title';
 import useCart from '../../hooks/useCart';
 import useFilter from '../../hooks/useFilter';
 import usePagination from '../../hooks/usePagination';
 import useProducts from '../../hooks/useProducts';
+import PageSpinner from '../PageSpinner';
 
 function Catalog() {
   const { loading, state, applyFilterToProducts } = useProducts();
@@ -27,16 +27,7 @@ function Catalog() {
     applyFilterToProducts(e.target.value);
   };
 
-  if (loading)
-    return (
-      <PageContainer>
-        <Container
-          style={{ margin: 'auto', justifyContent: 'center', height: '90vh', alignItems: 'center' }}
-        >
-          <Spinner />
-        </Container>
-      </PageContainer>
-    );
+  if (loading) return <PageSpinner />;
 
   return (
     <PageContainer>
